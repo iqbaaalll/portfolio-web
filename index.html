@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Iqbal</title>
     <link rel = "icon" href = "dist/img/Black_and_White_Monochrome_Tech_Logo-removebg-preview.png" type = "image/x-icon">
     <link href="dist/output.css" rel="stylesheet">
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
 </head>
 <body>
     <!-- Header Start -->
@@ -22,25 +29,37 @@
                         <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
                     </button>
                     
-                    <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
+                    <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-dark dark:shadow-slate-700 lg:dark:bg-transparent">
                         <ul class="block lg:flex">
                             <li class="group">
-                                <a href="#home" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Home</a>
+                                <a href="#home" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Home</a>
                             </li>
                             <li class="group">
-                                <a href="#about" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">About</a>
+                                <a href="#about" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">About</a>
                             </li>
                             <li class="group">
-                                <a href="#skills" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Skills</a>
+                                <a href="#skills" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Skills</a>
                             </li>
                             <li class="group">
-                                <a href="#portfolio" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Portfolio</a>
+                                <a href="#portfolio" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Portfolio</a>
                             </li>
                             <li class="group">
-                                <a href="#blog" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Blog</a>
+                                <a href="#blog" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Blog</a>
                             </li>
                             <li class="group">
-                                <a href="#contact" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Contact</a>
+                                <a href="#contact" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Contact</a>
+                            </li>
+                            <li class="mt-3 lg:mt-0 flex items-center pl-8">
+                                <div class="flex">
+                                    <span class="mr-2 text-sm text-slate-500">light</span>
+                                    <input type="checkbox" class="hidden" id="dark-toggle">
+                                    <label for="dark-toggle">
+                                        <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                                            <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"></div>
+                                        </div>
+                                    </label>
+                                    <span class="ml-2 text-sm text-slate-500">dark</span>
+                                </div>
                             </li>
                         </ul>
                     </nav>
@@ -51,16 +70,16 @@
     <!-- Header End -->
     
     <!-- Hero Section Starct -->
-    <section id="home" class="pl-7 pt-36">
+    <section id="home" class="pt-36 dark:bg-dark">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full self-center px-4 lg:w-1/2">
                     <h1 class="text-base font-semibold text-primary md:text-xl">Hello everyone 👋, 
                     i am <span class="block font-bold text-dark text-4xl 
-                    mt-1 lg:text-5xl">Muhammad Iqbal</span></h1>
+                    mt-1 lg:text-5xl dark:text-white">Muhammad Iqbal</span></h1>
                     <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl"> 
-                    <span class="text-dark">Backend Developer</span></h2>
-                    <p class="font-medium text-slate-500 mb-10 leading-relaxed">A fool with a tool is still a fool. Always have a <span class="text-dark font-bold">goal</span>, a <span class="text-dark font-bold">plan</span> & the tool as <span class="text-dark font-bold">the enabler!</span></p>
+                    <span class="text-dark  dark:text-white">Backend Developer</span></h2>
+                    <p class="font-medium text-slate-500 mb-10 leading-relaxed">A fool with a tool is still a fool. Always have a <span class="text-dark  dark:text-white font-bold">goal</span>, a <span class="text-dark  dark:text-white font-bold">plan</span> & the tool as <span class="text-dark  dark:text-white font-bold">the enabler!</span></p>
 
                     <a href="mailto:iqbalajacz@gmail.com" class="text-bade font-semibold text-white
                     bg-primary py-3 px-8 rounded-full hover:shadow-lg 
@@ -70,8 +89,8 @@
                 <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-7 lg:mt-9">
                         <img src="dist/img/iqbal.png" alt="Muhammad Iqbal" 
-                        class="max-w-full mx-auto width="500" height="500">
-                        <span class="absolute bottom-10 -z-10 left-1/2 -translate-x-1/2 md:scale-125">
+                        class="max-w-full mx-auto relative z-10 width="500" height="500">
+                        <span class="absolute bottom-10 left-1/2 -translate-x-1/2 md:scale-125">
                             <svg width="250" height="240" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                                 <path fill="#0ea5e9" d="M43.5,-61.5C55.4,-51.3,63.3,-37.2,69.6,-21.7C76,-6.1,80.8,10.9,74,21.7C67.3,32.5,48.8,37.2,34.6,45.7C20.3,54.3,10.1,66.7,-4.1,72.3C-18.3,77.9,-36.6,76.7,-45.6,66.5C-54.7,56.2,-54.5,37,-56.8,20.6C-59.1,4.3,-63.9,-9,-63.2,-23.4C-62.4,-37.8,-56.2,-53.3,-44.7,-63.6C-33.3,-73.9,-16.6,-79.1,-0.4,-78.5C15.8,-77.9,31.7,-71.7,43.5,-61.5Z" 
                                 transform="translate(100 100) scale(1.3)" />
@@ -85,20 +104,20 @@
     <!-- Hero Section End -->
 
     <!-- About Section Start -->
-    <section id="about" class="pl-7 pt-36 pb-32">
+    <section id="about" class="pt-36 pb-32  dark:bg-dark">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
-                    <h4 class="font-bold uppercase text-primary text-lg mb-3">About Me</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">Hello, my name is Iqbal!</h2>
-                    <p class="font-medium text-base text-slate-500 max-w-xl lg:text-lg">I'm a final year Information Technology student at Brawijaya University. I am particularly interested in the field of artificial intelligence, especially Machine Learning and web development,
+                    <h4 class="font-bold text-primary text-lg mb-3">About Me</h4>
+                    <h2 class="font-bold text-dark dark:text-white text-3xl mb-5 max-w-md lg:text-4xl">Hello, my name is Iqbal!</h2>
+                    <p class="font-medium text-base text-slate-500 max-w-xl lg:text-lg text-justify">I'm a final year Information Technology student at Brawijaya University. I am particularly interested in the field of artificial intelligence, especially Machine Learning and web development,
                         especially Backend Development, UI/UX, and database systems. I've had some experience working on projects that involved developing machine learning model,
-                        websites, APIs, and UI designs.
+                        websites, APIs, and UI designs. You can access my Curriculum vitae <a href="https://drive.google.com/file/d/1lH8TUjw_sUPSerPrZd2qwpXz3xDcMkbE/view?usp=sharing" class="hover:text-slate-700">here</a>.
                         </p>
                 </div>
                 <div class="w-full px-4 lg:w-1/2">
-                    <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10">Let's Connect</h3>
-                    <p class="font-medium text-base text-slate-500 mb-6 lg:text-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo delectus dolores inventore aspernatur recusandae dolorem laborum aperiam labore!</p>
+                    <h3 class="font-semibold text-dark  dark:text-white text-2xl mb-4 lg:text-3xl lg:pt-10">Let's Connect</h3>
+                    <p class="font-medium text-base text-slate-500 mb-6 lg:text-lg">Let's get to know me closer by adding me as a friend through the social media below. And don't hesitate to chat or ask questions about myself.</p>
                     <div class="flex items-center">
                         <!-- Youtube -->
                         <a href="https://www.youtube.com/@MuhammadIqbal-lj1ib" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
@@ -138,28 +157,28 @@
     <!-- About Section End -->
 
     <!-- Skills Section Start -->
-    <section id="skills" class="pl-7 pt-36 pb-16 bg-slate-700">
+    <section id="skills" class="pt-36 pb-16 bg-slate-700 dark:bg-slate-800">
         <div class="container">
             <div class="w-full px-4">
                 <div class="mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Skills</h4>
-                    <h2 class="font-bold text-white text-3xl sm:text-4xl lg:text-5xl mb-4">Skill yang dikuasai</h2>
-                    <p class="font-medium text-md text-slate-500 md:text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis aut similique amet.</p>
+                    <h4 class="font-bold text-lg text-primary mb-2">Skills</h4>
+                    <h2 class="font-bold text-white text-3xl sm:text-4xl lg:text-5xl mb-4">Programming language</h2>
+                    <p class="font-medium text-md text-slate-500 md:text-lg">I quite mastered several frameworks from several programming languages ​​below.</p>
                 </div>
             </div>
 
             <div class="w-full px-4">
                 <div class="flex flex-wrap items-center justify-center">
-                    <a href="#" class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
+                    <a href="#" class="max-w-[140px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
                         <img src="dist/img/php-logoo.png" alt="">
                     </a>
-                    <a href="#" class="max-w-[100px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
+                    <a href="#" class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
                         <img src="dist/img/JavaScript-logo.png" alt="">
                     </a>
-                    <a href="#" class="max-w-[100px] mx-2 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
+                    <a href="#" class="max-w-[130px] mx-2 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
                         <img src="dist/img/Python-logo-notext.svg.png" alt="">
                     </a>
-                    <a href="#" class="max-w-[180px] mx-1 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
+                    <a href="#" class="max-w-[200px] mx-1 pr-7 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
                         <img src="dist/img/Go-Logo_Blue.png" alt="">
                     </a>
                 </div>
@@ -169,30 +188,30 @@
     <!-- Skills Section End -->
 
     <!-- Portfolio Section Start -->
-    <section id="portfolio" class="pl-7 pt-36 pb-32 bg-slate-100">
+    <section id="portfolio" class="pt-36 pb-32 bg-slate-100 dark:bg-dark">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2">Portfolio</h4>
-                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Latest Project</h2>
-                    <p class="font-medium text-md text-slate-500 md:text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita libero deleniti nesciunt soluta beatae animi perferendis odit dolor. At accusamus necessitatibus beatae ratione autem fuga laborum quibusdam repellat!</p>
+                    <h4 class="font-bold text-lg text-primary mb-2">Portfolio</h4>
+                    <h2 class="font-bold text-dark  dark:text-white text-3xl sm:text-4xl lg:text-5xl mb-4">Latest Project</h2>
+                    <p class="font-medium text-md text-slate-500 md:text-lg">I've had some experience working on projects that involved developing machine learning models, websites, APIs, and UI designs. Here are some of the projects I recently developed.</p>
                 </div>
             </div>
 
             <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
-                <div class="mb-10 p-4 lg:w-1/2">
+                <div class="mb-10 p-8 lg:w-1/2">
                     <div class="rounded-md shadow-md overflow-hidden mb-5">
                         <img src="dist/img/project1.png" alt="SaBo Application" width="w-full">
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">SaBo Smart Border Security App</h3>
-                    <p class="font-medium text-base text-slate-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius est temporibus esse vitae animi nisi cupiditate minus ullam neque laboriosam!</p>
+                    <h3 class="font-semibold text-xl text-dark  dark:text-white mt-5 mb-3">SaBo Smart Border Security App</h3>
+                    <p class="font-medium text-base text-slate-500 text-justify">SaBo is a mobile-based application that has the goal of helping border guard soldiers to guard border areas that are difficult to reach. SaBo has main features, namely object detection and an alert feature if an object is detected in an unreachable border area.</p>
                 </div>
-                <div class="mb-12 p-4 pl-3 lg:w-1/2">
+                <div class="mb-12 p-8 lg:w-1/2">
                     <div class="rounded-md shadow-md overflow-hidden mb-5">
                         <img src="dist/img/project2.png" alt="Eventify" width="w-full">
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Eventify Ticket Booking Web App</h3>
-                    <p class="font-medium text-base text-slate-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius est temporibus esse vitae animi nisi cupiditate minus ullam neque laboriosam!</p>
+                    <h3 class="font-semibold text-xl text-dark  dark:text-white mt-5 mb-3">Eventify Ticket Booking Web App</h3>
+                    <p class="font-medium text-base text-slate-500 text-justify">Eventify is a web application that aims to make it easier for event organizers to create an event. Eventify has the main features, namely creating an event and ordering tickets online, apart from that Eventify also has the advantage that it can be accessed with multiusers.</p>
                 </div>
             </div>
         </div>
@@ -200,49 +219,49 @@
     <!-- Portfolio Section End -->
 
     <!-- Blog Section Start -->
-    <section id="blog" class="pt-36 pb-16 bg-slate-200">
+    <section id="blog" class="pt-36 pb-16 bg-slate-200  dark:bg-slate-800">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
                     <h4 class="font-semibold text-lg text-primary mb-2">Blog</h4>
-                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Latest Blog</h2>
-                    <p class="font-medium text-md text-slate-500 md:text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe esse quaerat ducimus ex.</p>
+                    <h2 class="font-bold text-dark  dark:text-white text-3xl sm:text-4xl lg:text-5xl mb-4">Latest Blog</h2>
+                    <p class="font-medium text-md text-slate-500 md:text-lg">The following are some of my writings that discuss topics such as programming, technology and lifestyle. I hope this article can be useful for you!</p>
                 </div>
             </div>
 
             <div class="flex flex-wrap">
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+                    <div class="bg-white dark:bg-slate-700 rounded-xl shadow-lg overflow-hidden mb-10">
                         <img src="https://source.unsplash.com/360x200?programming" alt="Programming" class="w-full">
                         <div class="py-8 px-6">
                             <h3>
-                               <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate">Tips Learn Programming</a>
+                               <a href="#" class="block mb-3 font-semibold text-xl text-dark dark:text-white hover:text-primary truncate">How Learn Programming</a>
                             </h3>
-                            <p class="font-medium text-base text-slate-500 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, odit?</p>
+                            <p class="font-medium text-base text-slate-500 mb-4">Programming is one of the difficult sciences, but we can learn it easily ...</p>
                             <a href="#" class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Read more</a>
                         </div>
                     </div>
                 </div>
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+                    <div class="bg-white dark:bg-slate-700 rounded-xl shadow-lg overflow-hidden mb-10">
                         <img src="https://source.unsplash.com/360x200?mechanical+keyboard" alt="Mechanical Keyboard" class="w-full">
                         <div class="py-8 px-6">
                             <h3>
-                               <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate">Review Keyboard GMMK Pro</a>
+                               <a href="#" class="block mb-3 font-semibold text-xl text-dark  dark:text-white hover:text-primary truncate">Keyboard Nemesis 5 Pro Review</a>
                             </h3>
-                            <p class="font-medium text-base text-slate-500 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, odit?</p>
+                            <p class="font-medium text-base text-slate-500 mb-4">A mechanical keyboard that has many features at a fairly affordable price ...</p>
                             <a href="#" class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Read more</a>
                         </div>
                     </div>
                 </div>
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="https://source.unsplash.com/360x200?machinelearning" alt="Machine Learning" class="w-full">
+                    <div class="bg-white dark:bg-slate-700 rounded-xl shadow-lg overflow-hidden mb-10">
+                        <img src="https://source.unsplash.com/360x200?lifestyle" alt="Machine Learning" class="w-full">
                         <div class="py-8 px-6">
                             <h3>
-                               <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate">Object Detection with YOLOv8</a>
+                               <a href="#" class="block mb-3 font-semibold text-xl text-dark  dark:text-white hover:text-primary truncate">How to start a healthy lifestyle</a>
                             </h3>
-                            <p class="font-medium text-base text-slate-500 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, odit?</p>
+                            <p class="font-medium text-base text-slate-500 mb-4">In a healthy body, there must be a strong soul and a lot of money ...</p>
                             <a href="#" class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Read More</a>
                         </div>
                     </div>
@@ -253,13 +272,13 @@
     <!-- Blog Section End -->
 
     <!-- Contact Section Start -->
-    <section id="contact" class="pt-36 pb-32">
+    <section id="contact" class="pt-36 pb-32 dark:bg-slate-900">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
                     <h4 class="font-semibold text-lg text-primary mb-2">Contact</h4>
-                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4">Contact Me</h2>
-                    <p class="font-medium text-md text-slate-500 md:text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe esse quaerat ducimus ex.</p>
+                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4 dark:text-white">Contact Me</h2>
+                    <p class="font-medium text-md text-slate-500 md:text-lg">If you still have questions about me, don't hesitate to contact me using the form below!</p>
                 </div>
             </div>
             
@@ -267,15 +286,15 @@
                 <div class="w-full lg:w-2/3 lg:mx-auto">
                     <div class="w-full px-4 mb-8" >
                         <label for="name" class="text-base font-bold text-primary">Name</label>
-                        <input type="text" id="name" class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
+                        <input type="text" id="name" class="w-full mt-3 bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
                     </div>
                     <div class="w-full px-4 mb-8">
                         <label for="email" class="text-base font-bold text-primary">Email</label>
-                        <input type="email" id="email" class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
+                        <input type="email" id="email" class="w-full mt-3 bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
                     </div>
                     <div class="w-full px-4 mb-8">
                         <label for="message" class="text-base font-bold text-primary">Message</label>
-                        <textarea type="email" id="email" class="w-full
+                        <textarea type="email" id="email" class="w-full mt-3
                         bg-slate-200 text-dark p-3 rounded-md focus:outline-none
                         focus:ring-primary focus:ring-1 focus:border-primary
                         h-32"></textarea>
@@ -290,7 +309,7 @@
     <!-- COntact Section End -->
 
     <!-- Footer Start -->
-    <footer class="bg-dark pt-24 pb-12">
+    <footer class="bg-dark dark:bg-slate-800 pt-24 pb-12">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
@@ -304,13 +323,13 @@
                     <h3 class="font-semibold text-xl text-white mb-5">Blog Category</h3>
                     <ul class="text-slate-300">
                         <li>
-                            <a href="#" class="inline-block text-base hover:text-primary mb-3">Programming</a>
+                            <a href="#blog" class="inline-block text-base hover:text-primary mb-3">Programming</a>
                         </li>
                         <li>
-                            <a href="#" class="inline-block text-base hover:text-primary mb-3">Technology</a>
+                            <a href="#blog" class="inline-block text-base hover:text-primary mb-3">Technology</a>
                         </li>
                         <li>
-                            <a href="#" class="inline-block text-base hover:text-primary mb-3">Lifestyle</a>
+                            <a href="#blog" class="inline-block text-base hover:text-primary mb-3">Lifestyle</a>
                         </li>
                     </ul>
                 </div>
@@ -372,11 +391,17 @@
                         1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                     </a>
                 </div>
-                <p class="font-medium text-[0.75rem] text-slate-500 text-center">Dibuat dengan <span class="text-pink-500">❤️</span> oleh <a href="https://www.instagram.com/m_iqbaal_/" target="_blank" class="font-bold text-primary">Muhammad Iqbal</a></p>
+                <p class="font-medium text-[0.75rem] text-slate-500 text-center">Made with <span class="text-pink-500">❤️</span> by <a href="https://www.instagram.com/m_iqbaal_/" target="_blank" class="font-bold text-primary">Muhammad Iqbal</a></p>
             </div>
         </div>
     </footer>
     <!-- Footer End -->
+
+    <!-- Back To Top Start -->
+    <a href="#home" id="to-top" class="fixed hidden justify-center items-center z-[9999] p-4 bottom-4 right-4 h-14 w-14 rounded-full bg-primary hover:animate-pulse">
+        <span class="block w-5 h-5 border-t-2 border-l-2 rotate-45  mt-2"></span>
+    </a>
+    <!-- Back To Top End -->
 
   <script src="dist/js/script.js"></script>  
 </body>
